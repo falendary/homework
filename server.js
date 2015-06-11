@@ -4,6 +4,7 @@ var express = require('express'),
 	done	= false;
 
 var server = app.listen(3000, function () {
+	console.log('Server running on http://localhost:3000 port');
 	app.use("/", express.static(__dirname));
 	app.get("*", function(req, res)
 	{
