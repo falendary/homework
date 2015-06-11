@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="homeWork">
+<head>
+	<meta charset="utf-8">
+	<base href="/">
+	<title>Конференция по программированию</title>
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="bower_components/angular-xeditable/dist/css/xeditable.css">
+	<link rel="stylesheet" href="bower_components/bootstrap-daterangepicker/daterangepicker-bs3.css">
+	<link rel="stylesheet" href="bower_components/angular-ui/build/angular-ui.min.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="bower_components/ui-router/release/angular-ui-router.min.js"></script>
+	<script src="bower_components/ngstorage/ngStorage.min.js"></script>
+	<script src="bower_components/angular-xeditable/dist/js/xeditable.min.js"></script>
+	<script src="bower_components/ng-file-upload/ng-file-upload-shim.min.js"></script>
+	<script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
+	<script src="bower_components/angular-ui/build/angular-ui.min.js"></script>
+	<script src="assets/js/ui-bootstrap-tpls.min.js"></script>
+	<script src="app/app.js"></script>
+	<script src="app/app.routes.js"></script>
+	<script src="app/controllers/reporters.ctrl.js"></script>
+	<script src="app/controllers/docs.ctrl.js"></script>
+	<script src="app/controllers/timetable.ctrl.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<h1>Конференция по программированию</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<ul class="nav navbar-nav">
+					<li><a href="/timetable">Расписание</a></li>
+					<li><a href="/docs">Доклады</a></li>
+					<li><a href="/reporters">Докладчики</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div ui-view>
+		
+	</div>
+</body>
+</html>

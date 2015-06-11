@@ -1,0 +1,82 @@
+<div class="container" ng-controller="ReportersController">
+	<div class="row">
+		<div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
+			<h2>Докладчики</h2>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+			<button 
+				ng-click="addReporter()" 
+				class="btn btn-default">Добавить докладчика</button>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-5 col-sm-3 col-md-5 col-lg-2 col-md-offset-2 col-lg-offset-2 col-sm-offset-5 name-holder">
+			ФИО
+		</div>
+		<div class="col-xs-5 col-sm-3 col-md-3 col-lg-2">
+			Город
+		</div>
+		<div class="col-xs-5 col-sm-3 col-md-3 col-lg-3">
+			Доклад
+		</div>
+		<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+			
+		</div>
+	</div>
+	<div class="row reporter-holder" 
+		ng-repeat="reporter in reporters">
+		<form editable-form name="editableForm" onaftersave="saveReporter($data, reporter.id)" shown="inserted == reporter">
+			<div class="col-xs-5 hidden-xs col-sm-5 col-md-2 col-lg-2">
+				<img src="{{reporter.photo}}" alt="" class="doc-photo" ng-show="reporter.photo">
+				<div class="btn btn-default upload-file"
+					ng-show="editableForm.$visible"
+					ngf-select 
+					ngf-change="upload($files, reporter.id)" 
+				>Upload File</div>
+			</div>
+			<div class="col-xs-5 col-sm-3 col-md-5 col-lg-2">
+				<div 
+					editable-text="reporter.name"
+					e-name="name">
+					{{reporter.name}}
+				</div>
+			</div>
+			<div class="col-xs-5 col-sm-3 col-md-3 col-lg-2">
+				<div 
+					editable-text="reporter.city"
+					e-name="city">
+					{{reporter.city}}
+				</div>
+			</div>
+			<div class="col-xs-5 col-sm-2 col-md-3 col-lg-3">
+				<div 
+					editable-text="reporter.report"
+					e-name="report">
+					{{reporter.report}}
+				</div>
+			</div>
+			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-3">
+				<button 
+					class="btn btn-default"
+					type="button"
+					ng-click="editableForm.$show()"
+					ng-show="!editableForm.$visible">edit</button>
+				<button
+					type="submit"
+					class="btn btn-primary"
+					ng-show="editableForm.$visible"
+					ng-disabled="editableForm.$waiting">save</button>
+				<button 
+					class="btn btn-default"
+					type="button"
+					ng-show="editableForm.$visible"
+					ng-click="editableForm.$cancel()">cancel</button>
+				<button 
+					class="btn btn-danger" 
+					ng-show="editableForm.$visible"
+					ng-click="removeReporter($index)">del</button>
+			</div>
+		</form>
+	</div>
+
+</div>

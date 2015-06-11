@@ -1,4 +1,4 @@
-homeWork.controller("TimetableController", function ($scope, $http, $localStorage) {
+homeWork.controller("DocsController", function ($scope, $http, $localStorage) {
 	$scope.reporters = $localStorage.data || [
 		{
 			id: 1,
@@ -11,4 +11,5 @@ homeWork.controller("TimetableController", function ($scope, $http, $localStorag
 			photo: null
 		}
 	];
+
 })

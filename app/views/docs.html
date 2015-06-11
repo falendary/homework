@@ -1,49 +1,38 @@
-<div class="container" ng-controller="TimetableController">
+<div class="container" ng-controller="DocsController">
 	<div class="row">
 		<div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
-			<h2>Расписание</h2>
+			<h2>Доклады</h2>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-xs-5 col-sm-5 col-md-3 col-lg-3">
-			Время
-		</div>
-		<div class="col-xs-3 col-sm-5 col-md-3 col-lg-4">
 			Доклад
 		</div>
-		<div class="col-xs-4 col-sm-5 col-md-3 col-lg-3">
+		<div class="col-xs-5 col-sm-5 col-md-3 col-lg-4">
+			Аннотация
+		</div>
+		<div class="col-xs-5 col-sm-5 col-md-3 col-lg-3">
 			Автор
 		</div>
 	</div>
-	<div class="row reporter-holder"  
+	<div class="row reporter-holder" 
 		ng-repeat="reporter in reporters">
 		<form editable-form name="editableForm" onaftersave="saveReporter($data, reporter.id)" shown="inserted == reporter">
-			<div class="col-xs-5 col-sm-5 col-md-3 col-lg-3 dateholder">
-				<div 
-					class="date-picker time-col"
-					editable-bstime="reporter.timeStart"
-					e-show-meridian="false" 
-					e-minute-step="10"
-					e-name="time">
-					{{ (reporter.timeStart | date:"HH:mm") || 'Не назначено' }}
-				</div>
-				<div 
-					class="date-picker time-col"
-					editable-bstime="reporter.timeEnd"
-					e-show-meridian="false" 
-					e-minute-step="10"
-					e-name="time">
-					{{ (reporter.timeEnd | date:"HH:mm") || '' }}
-				</div>
-			</div>
-			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-4">
+			<div class="col-xs-5 col-sm-5 col-md-3 col-lg-3">
 				<div 
 					editable-text="reporter.report"
 					e-name="report">
 					{{reporter.report}}
 				</div>
 			</div>
-			<div class="col-xs-2 col-sm-2 col-md-3 col-lg-3">
+			<div class="col-xs-5 col-sm-5 col-md-3 col-lg-4 desc-holder">
+				<div 
+					editable-textarea="reporter.desc"
+					e-name="desc">
+					{{reporter.desc}}
+				</div>
+			</div>
+			<div class="col-xs-5 col-sm-5 col-md-3 col-lg-3">
 				<div 
 					editable-text="reporter.name"
 					e-name="name">

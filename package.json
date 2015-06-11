@@ -1,0 +1,17 @@
+{
+  "name": "homework",
+  "version": "0.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "express": "~4.12.4",
+    "multer": "~0.1.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Sergey Zhitenev <zhitenev36@gmail.com> (https://github.com/falendary)",
+  "license": "BSD-2-Clause"
+}
