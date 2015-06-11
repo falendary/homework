@@ -8,4 +8,4 @@ npm install & bower install
 
 ## How to start
 
-npm install & bower install
+node server.js
