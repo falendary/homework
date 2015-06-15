@@ -2,6 +2,10 @@
 
 Angular SPA homework project
 
-## npm install & bower install
+## How to initialize
 
-## node server.js 
+npm install & bower install
+
+## How to start
+
+node server.js
