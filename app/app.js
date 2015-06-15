@@ -1,7 +1,9 @@
 var homeWork = angular.module("homeWork", 
 	[
 		"ui.router", // роутер
+		"ngResource", // ngresource
 		"ngStorage", // локалсторож
+		"mainService",
 		"xeditable", // красивые формы
     	"ngFileUpload", // Загрузка файлов
     	"ui.bootstrap" // ui bootstrap

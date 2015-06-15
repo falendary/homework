@@ -5,7 +5,13 @@
   "main": "server.js",
   "dependencies": {
     "express": "~4.12.4",
-    "multer": "~0.1.8"
+    "multer": "~0.1.8",
+    "mongoose": "~4.0.5",
+    "winston": "~1.0.0",
+    "body-parser": "~1.13.0",
+    "serve-favicon": "~2.3.0",
+    "method-override": "~2.3.3",
+    "morgan": "~1.6.0"
   },
   "devDependencies": {},
   "scripts": {

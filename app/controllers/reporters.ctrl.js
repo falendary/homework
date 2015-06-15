@@ -1,16 +1,14 @@
-homeWork.controller("ReportersController", function ($scope, $http, Upload, $localStorage) {
-	$scope.reporters = $localStorage.data || [
-		{
-			id: 1,
-			name: "Сергей Житенев",
-			report: "Создание SPA приложений",
-			city: "Воронеж",
-			timeStart: "14:00",
-			timeEnd: "14:30",
-			desc: "Создание демонстративного SPA приложения на тему Конференция по программированию",
-			photo: null
-		}
-	];
+homeWork.controller("ReportersController", function ($scope, $http, Upload, reportService, reportsService, $q, $location) {
+
+	$scope.reporters = {};
+
+	reportsService.query(function(data)
+	{
+		$scope.reporters = data;
+		// console.log($scope.reporters);
+	});
+	
+
 
 	$scope.upload = function (files, id) {
         if (files && files.length) {
@@ -22,9 +20,9 @@ homeWork.controller("ReportersController", function ($scope, $http, Upload, $loc
                 })
                 .success(function (data, status, headers, config) {
                 	console.log(config);
-                	for (var i = $localStorage.data.length - 1; i >= 0; i--) {
-						if ($localStorage.data[i].id == id) {
-							$localStorage.data[i].photo = config.url+"/"+config.file.name;
+                	for (var i = $scope.reporters.length - 1; i >= 0; i--) {
+						if ($scope.reporters[i]._id == id) {
+							$scope.reporters[i].photo = config.url+"/"+config.file.name;
 						};
 					};
                 });
@@ -33,30 +31,22 @@ homeWork.controller("ReportersController", function ($scope, $http, Upload, $loc
     };
 
 	// Сохранить
-	$scope.saveReporter = function($data, id)
+	$scope.saveReporter = function(reporter)
 	{
-		for (var i = $localStorage.data.length - 1; i >= 0; i--) {
-			console.log($localStorage.data[i]);
-		};
+		console.log(reporter);
+		reportService.update(reporter);
 	}
 	// Создать
 	$scope.addReporter = function()
 	{
-		$scope.inserted = {
-			id: $scope.reporters.length+1,
-			name: '',
-			report: '',
-			city: '',
-			timeStart: '',
-			timeEnd: '',
-			desc: '',
-			photo: ''
-		};
-		$scope.reporters.push($scope.inserted);
+		$scope.inserted = reportsService.create();
+		$scope.reporters = reportsService.query()
 	}
 	// Удалить
-	$scope.removeReporter = function(index) 
+	$scope.removeReporter = function(reportId) 
 	{
-    	$scope.reporters.splice(index, 1);
+		console.log(reportId);
+		reportService.delete({id: reportId});
+		$scope.reporters = reportsService.query()
  	 };
 })
